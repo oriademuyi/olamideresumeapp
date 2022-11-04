@@ -5,7 +5,6 @@ import 'package:my_resume/screen/about.dart';
 import 'package:my_resume/screen/portfolio.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
-import 'package:solid_bottom_sheet/solid_bottom_sheet.dart';
 
 class homePage extends StatefulWidget {
   const homePage({Key? key}) : super(key: key);
@@ -76,7 +75,6 @@ class _homePageState extends State<homePage>
     }
   }
 
-  SolidController _controller = SolidController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
