@@ -3,10 +3,9 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:my_resume/screen/about.dart';
 import 'package:my_resume/screen/portfolio.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-
 import 'package:url_launcher/url_launcher.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
+import 'package:solid_bottom_sheet/solid_bottom_sheet.dart';
 
 class homePage extends StatefulWidget {
   const homePage({Key? key}) : super(key: key);
@@ -77,6 +76,7 @@ class _homePageState extends State<homePage>
     }
   }
 
+  SolidController _controller = SolidController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -257,190 +257,197 @@ class _homePageState extends State<homePage>
             ? about_page()
             : pageSwitchportfolio
                 ? portfolio_page()
-                : Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Center(
-                        child: Padding(
-                          padding: const EdgeInsets.all(15.0),
-                          child: Row(
-                            children: [
-                              SizedBox(
-                                height: 20,
-                              ),
-                              CircleAvatar(
-                                backgroundColor: Colors.white,
-                                radius: 40,
-                                child: Image.asset(
-                                  'assets/muyiwa12.jpeg',
-                                  height: 60,
-                                  width: 60,
-                                ),
-                              ),
-                              SizedBox(
-                                width: 24,
-                              ),
-                              SizedBox(
-                                width: 250,
-                                child: Text(
-                                  "Hello Welcome, My name is Olarewaju Muyiwa",
-                                  style: TextStyle(
-                                      fontSize: 20,
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors.white),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                      Padding(
-                        padding:
-                            const EdgeInsets.only(left: 20, right: 20, top: 30),
-                        child: TypewriterAnimatedTextKit(
-                          text: ["LET ME INTRODUCE MYSELF"],
-                          textStyle: TextStyle(
-                              fontSize: 20.0,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.white),
-                        ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.all(12.0),
-                        child: Column(
+                : Container(
+                    height: MediaQuery.of(context).size.height,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Column(
                           children: [
-                            Text(
-                              " A dynamic and result-driven enthusiast with an in-depth knowledge of software development procedures with vast experience in mobile app development (flutter) and basic knowledge in web development (react).",
-                              style: TextStyle(
-                                  fontSize: 14,
-                                  color: Colors.white,
-                                  height: 1.6),
+                            Center(
+                              child: Padding(
+                                padding: const EdgeInsets.all(15.0),
+                                child: Row(
+                                  children: [
+                                    SizedBox(
+                                      height: 20,
+                                    ),
+                                    CircleAvatar(
+                                      backgroundColor: Colors.white,
+                                      radius: 40,
+                                      child: Image.asset(
+                                        'assets/muyiwa12.jpeg',
+                                        height: 60,
+                                        width: 60,
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      width: 24,
+                                    ),
+                                    SizedBox(
+                                      width: 250,
+                                      child: Text(
+                                        "Hello Welcome, My name is Olarewaju Muyiwa",
+                                        style: TextStyle(
+                                            fontSize: 20,
+                                            fontWeight: FontWeight.bold,
+                                            color: Colors.white),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
                             ),
-                            SizedBox(
-                              height: 15,
+                            Padding(
+                              padding: const EdgeInsets.only(
+                                  left: 20, right: 20, top: 30),
+                              child: TypewriterAnimatedTextKit(
+                                text: ["LET ME INTRODUCE MYSELF"],
+                                textStyle: TextStyle(
+                                    fontSize: 20.0,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.white),
+                              ),
                             ),
-                            Text(
-                              "I am  comfortable using flutter to buid IOS/andriod application, I am Well versed in the vicinity of Information Technology (IT) with strong understanding of theoretical and practical knowledge. take pride in making sure all the projects are up to client’s satisfaction ",
-                              style: TextStyle(
-                                  fontSize: 14,
-                                  color: Colors.white,
-                                  height: 1.6),
-                            ),
-                            SizedBox(
-                              height: 15,
-                            ),
-                            Text(
-                              "Don't you think you should work with me on your next project , Feel free to connect with me on 08133691873 or connect on my socail media handle bellow.",
-                              style: TextStyle(
-                                fontSize: 14,
-                                color: Colors.white,
-                                height: 1.6,
+                            Padding(
+                              padding: const EdgeInsets.all(12.0),
+                              child: Column(
+                                children: [
+                                  Text(
+                                    " A dynamic and result-driven enthusiast with an in-depth knowledge of software development procedures with vast experience in mobile app development (flutter) and basic knowledge in web development (react).",
+                                    style: TextStyle(
+                                        fontSize: 14,
+                                        color: Colors.white,
+                                        height: 1.6),
+                                  ),
+                                  SizedBox(
+                                    height: 15,
+                                  ),
+                                  Text(
+                                    "I am  comfortable using flutter to buid IOS/andriod application, I am Well versed in the vicinity of Information Technology (IT) with strong understanding of theoretical and practical knowledge. take pride in making sure all the projects are up to client’s satisfaction ",
+                                    style: TextStyle(
+                                        fontSize: 14,
+                                        color: Colors.white,
+                                        height: 1.6),
+                                  ),
+                                  SizedBox(
+                                    height: 15,
+                                  ),
+                                  Text(
+                                    "Don't you think you should work with me on your next project , Feel free to connect with me on 08133691873 or connect on my socail media handle bellow.",
+                                    style: TextStyle(
+                                      fontSize: 14,
+                                      color: Colors.white,
+                                      height: 1.6,
+                                    ),
+                                  ),
+                                ],
                               ),
                             ),
                           ],
                         ),
-                      ),
-                      SizedBox(
-                        height: 50,
-                      ),
-                      Expanded(
-                        child: Container(
-                          padding: EdgeInsets.symmetric(horizontal: 20),
-                          decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: BorderRadius.only(
-                                  topLeft: Radius.circular(20),
-                                  topRight: Radius.circular(20))),
-                          child: Padding(
-                            padding: const EdgeInsets.all(0.0),
-                            child: Column(
-                              children: [
-                                SizedBox(
-                                  height: 30,
-                                ),
-                                Text("Connect with me!",
-                                    style: TextStyle(
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 20)),
-                                SizedBox(
-                                  height: 20,
-                                ),
-                                Text(
-                                  "You can connect with me on the following social medial platform",
-                                  style: TextStyle(fontSize: 14, height: 1.6),
-                                ),
-                                SizedBox(
-                                  height: 20,
-                                ),
-                                Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    CircleAvatar(
-                                      backgroundColor: darkmode
-                                          ? Colors.black
-                                          : Colors.indigo[900],
-                                      radius: 20,
-                                      child: IconButton(
-                                          icon: FaIcon(
-                                            FontAwesomeIcons.facebook,
-                                            color: Colors.white,
-                                          ),
-                                          onPressed: () {
-                                            _launchUrl();
-                                            // facebook.com/olanrewaju.m.olamide
-                                          }),
-                                    ),
-                                    CircleAvatar(
-                                      backgroundColor: darkmode
-                                          ? Colors.black
-                                          : Colors.indigo[900],
-                                      radius: 20,
-                                      child: IconButton(
-                                          icon: FaIcon(
-                                            FontAwesomeIcons.twitter,
-                                            color: Colors.white,
-                                          ),
-                                          onPressed: () {
-                                            _launchtwitter();
-                                          }),
-                                    ),
-                                    CircleAvatar(
-                                      backgroundColor: darkmode
-                                          ? Colors.black
-                                          : Colors.indigo[900],
-                                      radius: 20,
-                                      child: IconButton(
-                                          icon: FaIcon(
-                                            FontAwesomeIcons.linkedinIn,
-                                            color: Colors.white,
-                                          ),
-                                          onPressed: () {
-                                            _launlinkedin();
-                                          }),
-                                    ),
-                                    CircleAvatar(
-                                      backgroundColor: darkmode
-                                          ? Colors.black
-                                          : Colors.indigo[900],
-                                      radius: 20,
-                                      child: IconButton(
-                                          icon: FaIcon(
-                                            FontAwesomeIcons.whatsapp,
-                                            color: Colors.white,
-                                          ),
-                                          onPressed: () {
-                                            _launchwhatsapp();
-                                          }),
-                                    ),
-                                  ],
-                                ),
-                              ],
+                        Align(
+                          alignment: Alignment.bottomCenter,
+                          child: Container(
+                            height: 210,
+                            padding: EdgeInsets.symmetric(horizontal: 20),
+                            decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius: BorderRadius.only(
+                                    topLeft: Radius.circular(20),
+                                    topRight: Radius.circular(20))),
+                            child: Padding(
+                              padding: const EdgeInsets.all(0.0),
+                              child: Column(
+                                children: [
+                                  SizedBox(
+                                    height: 30,
+                                  ),
+                                  Text("Connect with me!",
+                                      style: TextStyle(
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: 20)),
+                                  SizedBox(
+                                    height: 20,
+                                  ),
+                                  Text(
+                                    "You can connect with me on the following social medial platform",
+                                    style: TextStyle(fontSize: 14, height: 1.6),
+                                  ),
+                                  SizedBox(
+                                    height: 20,
+                                  ),
+                                  Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      CircleAvatar(
+                                        backgroundColor: darkmode
+                                            ? Colors.black
+                                            : Colors.indigo[900],
+                                        radius: 20,
+                                        child: IconButton(
+                                            icon: FaIcon(
+                                              FontAwesomeIcons.facebook,
+                                              color: Colors.white,
+                                            ),
+                                            onPressed: () {
+                                              _launchUrl();
+                                              // facebook.com/olanrewaju.m.olamide
+                                            }),
+                                      ),
+                                      CircleAvatar(
+                                        backgroundColor: darkmode
+                                            ? Colors.black
+                                            : Colors.indigo[900],
+                                        radius: 20,
+                                        child: IconButton(
+                                            icon: FaIcon(
+                                              FontAwesomeIcons.twitter,
+                                              color: Colors.white,
+                                            ),
+                                            onPressed: () {
+                                              _launchtwitter();
+                                            }),
+                                      ),
+                                      CircleAvatar(
+                                        backgroundColor: darkmode
+                                            ? Colors.black
+                                            : Colors.indigo[900],
+                                        radius: 20,
+                                        child: IconButton(
+                                            icon: FaIcon(
+                                              FontAwesomeIcons.linkedinIn,
+                                              color: Colors.white,
+                                            ),
+                                            onPressed: () {
+                                              _launlinkedin();
+                                            }),
+                                      ),
+                                      CircleAvatar(
+                                        backgroundColor: darkmode
+                                            ? Colors.black
+                                            : Colors.indigo[900],
+                                        radius: 20,
+                                        child: IconButton(
+                                            icon: FaIcon(
+                                              FontAwesomeIcons.whatsapp,
+                                              color: Colors.white,
+                                            ),
+                                            onPressed: () {
+                                              _launchwhatsapp();
+                                            }),
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              ),
                             ),
                           ),
                         ),
-                      )
-                    ],
+                      ],
+                    ),
                   ));
   }
 }
