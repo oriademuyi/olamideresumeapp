@@ -30,11 +30,13 @@ Link to APK
 
 
 
+
 Challenges
 I think the greatest challenge I encountered while working on this project is the app  switching from light to night mode automatically.
 
 
 Link to Appetize.io
 
+https://appetize.io/app/p4vfodlfencv7geipbucohzwqu
 
 
