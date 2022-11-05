@@ -31,7 +31,6 @@ Link to APK
 https://drive.google.com/file/d/10tvTY5zZT1GijsJ765PV3Yd8_oL-ak5t/view?usp=share_link
 
 
-[app-arm64-v8a-release.apk.zip](https://github.com/oriademuyi/olamideresumeapp/files/9941841/app-arm64-v8a-release.apk.zip)
 
 
 Challenges
